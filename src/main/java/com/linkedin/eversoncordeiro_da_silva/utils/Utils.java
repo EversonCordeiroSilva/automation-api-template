@@ -21,7 +21,7 @@ public class Utils {
     public static Properties getResponseFromProperties(String fileName) {
         Properties prop = new Properties();
         try {
-            prop.load(Files.newBufferedReader(Paths.get(baseDir)));
+            prop.load(Files.newBufferedReader(Paths.get(baseDir,"src/main/resources/payloads/response",fileName+".properties")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

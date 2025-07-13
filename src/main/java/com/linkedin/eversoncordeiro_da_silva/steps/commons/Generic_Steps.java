@@ -27,8 +27,8 @@ public class Generic_Steps {
         logic.loadPayload(payLoadName);
     }
 
-    @E("eu sou {string}")
-    public void euSou(String payLoadValue) {
+    @E("valido se o pokémon possui {} {string} e se este se encontra na {string}")
+    public void validoSeOPokemonPossuiMovimentoESeEsteSeEncontraNa(String campType, String value, String jsonPath) {
+        logic.validateResponse(value, jsonPath);
     }
-
 }

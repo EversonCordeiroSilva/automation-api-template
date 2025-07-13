@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.linkedin.eversoncordeiro_da_silva.utils.Context.*;
 import static com.linkedin.eversoncordeiro_da_silva.utils.Constants.*;
 import static com.linkedin.eversoncordeiro_da_silva.utils.Utils.extractJsonFromRest;
+import static com.linkedin.eversoncordeiro_da_silva.utils.Utils.getResponseFromProperties;
 
 public class Generic_Logic {
 
@@ -103,4 +103,23 @@ public class Generic_Logic {
         return Paths.get(payloadPath);
     }
 
+    public void validateResponse(String value, String jsonPath) {
+        Properties responseHowProperties = getResponseFromProperties("response");
+        List<String> jsonPaths = new ArrayList<>();
+        for (String returnedKey : responseHowProperties.stringPropertyNames()) {
+            String cleaned = returnedKey.replaceAll("^\\$\\.|\\[\\d+\\]", "");
+            String jsonPathValue = responseHowProperties.getProperty(returnedKey);
+            System.out.println("Validating jsonPath: " + returnedKey + " = " + jsonPathValue);
+            if (cleaned.equalsIgnoreCase(jsonPath)) {
+                jsonPaths.add(jsonPathValue);
+            }
+        }
+        if (jsonPaths.isEmpty()) {
+            System.out.println("No matching jsonPath found for: " + jsonPath);
+        } else {
+            System.out.println("Validating response value: " + value + " against jsonPaths: " + jsonPaths);
+            softAssert().assertThat(jsonPaths).contains(value);
+            System.out.println("\n");
+        }
+    }
 }

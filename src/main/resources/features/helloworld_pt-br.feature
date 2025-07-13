@@ -1,11 +1,14 @@
 #language: pt
   @api @helloworld_pt-br
 Funcionalidade: Operações CRUD
-
+  @consulta_pokemon
   Esquema do Cenario: Consultar Pokémon
     Dado eu capturei "<POKEMON>"
     Quando eu envio para a "POKE_API" no endpoint "<METHOD>" "<ENDPOINT>"
     Então espero o <STATUS CODE>
+    E valido se o pokémon possui habilidade "overgrow" e se este se encontra na "abilities.ability.name"
+    E valido se o pokémon possui habilidade "chlorophyll" e se este se encontra na "abilities.ability.name"
+    E valido se o pokémon possui movimento "solar-beam" e se este se encontra na "moves.move.name"
     Exemplos:
       | POKEMON   | METHOD | ENDPOINT                | STATUS CODE |
       | BULBASAUR | GET    | /pokemon/{nome_pokemon} | 200         |

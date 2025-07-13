@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/main/resources/features",
-        tags = "@helloworld_pt-br",
+        tags = "@consulta_pokemon",
         glue = "com.linkedin.eversoncordeiro_da_silva.steps",
         plugin = {"pretty", "html:target/cucumber-report.html"},
         monochrome = true
