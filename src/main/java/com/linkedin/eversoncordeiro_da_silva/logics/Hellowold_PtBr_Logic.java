@@ -11,7 +11,6 @@ public class Hellowold_PtBr_Logic extends Generic_Logic {
         rest().pathParam("nome_pokemon",pokeName);
     }
 
-
     public void setTrainerId(Integer trainerId) {
         newRequest();
         rest().pathParam("id", trainerId);

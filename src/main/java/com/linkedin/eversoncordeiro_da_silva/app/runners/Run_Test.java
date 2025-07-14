@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 /**
- * Class for experimentations solo
+ * Class for experimentations separated from the main project of automation.
  * */
 public class Run_Test {
 

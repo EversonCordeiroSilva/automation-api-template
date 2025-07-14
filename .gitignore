@@ -11,8 +11,9 @@
 .mtj.tmp/
 target
 .idea
-
-
+allure-report
+allure-results
+.allure
 # Package Files #
 *.jar
 *.war
