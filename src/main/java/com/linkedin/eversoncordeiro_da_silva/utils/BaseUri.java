@@ -1,4 +1,4 @@
-package com.linkedin.eversoncordeiro_da_silva.app.runners;
+package com.linkedin.eversoncordeiro_da_silva.utils;
 
 public enum BaseUri {
     POKE_API,
