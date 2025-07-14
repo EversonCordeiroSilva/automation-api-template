@@ -39,8 +39,8 @@ Funcionalidade: Operações CRUD
     Quando eu envio para a "REQRES_API" no endpoint "<METHOD>" "<ENDPOINT>"
     Então espero o <STATUS CODE>
     Exemplos:
-      | USUÁRIO | ID | PAYLOAD          | METHOD | ENDPOINT    | STATUS CODE |
-      | EVERSON | 2  | trainer_register | PUT    | /users/{id} | 200         |
+      | USUÁRIO | ID | PAYLOAD        | METHOD | ENDPOINT    | STATUS CODE |
+      | EVERSON | 2  | trainer_update | PUT    | /users/{id} | 200         |
 
   Esquema do Cenario: Deletar usuário
     Dado eu sou "<USUÁRIO>" com identificador <ID>
