@@ -1,11 +1,3 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Java CI with Maven + Allure
 
 on:
@@ -27,30 +19,21 @@ jobs:
           java-version: '17'
           distribution: 'corretto'
 
-
       # Executa os testes (gera target/allure-results)
       - name: Run tests with Maven
         run: mvn clean test --file pom.xml
 
-      # Publica os resultados brutos do Allure
-      - name: Upload Allure results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: target/allure-results
-
-      # (Opcional) Gera relatório HTML do Allure
+      # Gera relatório HTML do Allure
       - name: Generate Allure Report
         if: always()
         run: |
           npm install -g allure-commandline --save-dev
           allure generate target/allure-results --clean -o allure-report
 
-      # (Opcional) Publica o HTML do Allure como artifact
-      - name: Upload Allure HTML report
+      # Publica o Allure Report no GitHub Pages
+      - name: Deploy Allure Report to GitHub Pages
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: allure-report
-          path: allure-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
