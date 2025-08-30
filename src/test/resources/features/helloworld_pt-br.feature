@@ -1,4 +1,8 @@
 #language: pt
+@allure.label.epic:Api
+@allure.label.parentSuite:Cucumber
+@allure.label.suite:Labels
+@allure.label.subSuite:Authorized
 @api @helloworld_pt-br
 Funcionalidade: Operações CRUD
   Feature de exemplo para desenvolvimento de automação de API em JAVA
