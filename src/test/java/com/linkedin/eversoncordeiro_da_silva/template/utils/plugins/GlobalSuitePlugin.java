@@ -23,19 +23,19 @@ public class GlobalSuitePlugin implements ConcurrentEventListener, EventListener
             event.getTestCase().getTags().forEach(tag -> {
                 switch (tag){
                     case "api":{
-                        Allure.label("category", "api");
+                        Allure.label("api", "api");
                         break;
                     }
                     case "consulta":{
-                        Allure.label("category", "consulta");
+                        Allure.label("consulta", "consulta");
                         break;
                     }
                     case "atualiza":{
-                        Allure.label("category", "atualiza");
+                        Allure.label("atualiza", "atualiza");
                         break;
                     }
                     case "deleta":{
-                        Allure.label("category", "deleta");
+                        Allure.label("deleta", "deleta");
                         break;
                     }
                 }
