@@ -1,6 +1,8 @@
 #language: pt
-  @api @helloworld_pt-br
+@api @helloworld_pt-br
 Funcionalidade: Operações CRUD
+  Feature de exemplo para desenvolvimento de automação de API em JAVA
+
   @consulta_pokemon
   Esquema do Cenario: Consultar Pokémon
     Dado eu capturei "<POKEMON>"
@@ -40,7 +42,7 @@ Funcionalidade: Operações CRUD
     Então espero o <STATUS CODE>
     Exemplos:
       | USUÁRIO | ID | PAYLOAD        | METHOD | ENDPOINT    | STATUS CODE |
-      | EVERSON | 2  | trainer_update | PUT    | /users/{id} | 200         |
+      | EVERSON | 2  | trainer_update | PATCH  | /users/{id} | 200         |
 
   Esquema do Cenario: Deletar usuário
     Dado eu sou "<USUÁRIO>" com identificador <ID>

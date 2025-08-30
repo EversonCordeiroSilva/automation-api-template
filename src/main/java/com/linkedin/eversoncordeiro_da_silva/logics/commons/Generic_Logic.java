@@ -1,7 +1,6 @@
 package com.linkedin.eversoncordeiro_da_silva.logics.commons;
 
-import com.linkedin.eversoncordeiro_da_silva.app.runners.BaseUri;
-import io.restassured.response.Response;
+import com.linkedin.eversoncordeiro_da_silva.utils.BaseUri;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -56,8 +55,14 @@ public class Generic_Logic {
                 System.out.println("Executing DELETE request");
                 RESPONSE = rest().delete();
                 break;
+            case "PATCH":
+                // Logic for DELETE request
+                System.out.println("Executing PATCH request");
+                RESPONSE = rest().patch();
+                break;
             default:
-                System.out.println("Unsupported HTTP method: " + method);
+                softAssert().fail("Unsupported HTTP method: " + method);
+                softAssert().assertAll();
         }
         extractJsonFromRest(RESPONSE,"response");
     }
