@@ -1,4 +1,4 @@
-package com.linkedin.eversoncordeiro_da_silva.utils;
+package com.linkedin.eversoncordeiro_da_silva.template.utils;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -11,6 +11,7 @@ public class Context {
     private static final ThreadLocal<SoftAssertions> SOFT_ASSERT = new ThreadLocal<>();
 /// initializes the tools of assertions and rest assured
     public static void start(){
+
         REST.set(RestAssured.requestSpecification);
         SOFT_ASSERT.set(new SoftAssertions());
     }

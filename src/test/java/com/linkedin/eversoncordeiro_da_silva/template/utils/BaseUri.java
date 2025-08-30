@@ -1,4 +1,4 @@
-package com.linkedin.eversoncordeiro_da_silva.utils;
+package com.linkedin.eversoncordeiro_da_silva.template.utils;
 
 public enum BaseUri {
     POKE_API,

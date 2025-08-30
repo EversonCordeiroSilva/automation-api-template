@@ -23,7 +23,7 @@ jobs:
 
       # Executa os testes (gera target/allure-results)
       - name: Run tests with Maven
-        run: mvn clean test --file pom.xml
+        run: mvn clean test
 
       # Gera relatório HTML do Allure
       - name: Generate Allure Report

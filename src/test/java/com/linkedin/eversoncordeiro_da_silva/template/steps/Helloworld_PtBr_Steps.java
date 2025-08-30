@@ -1,9 +1,7 @@
-package com.linkedin.eversoncordeiro_da_silva.steps;
+package com.linkedin.eversoncordeiro_da_silva.template.steps;
 
-import com.linkedin.eversoncordeiro_da_silva.logics.Hellowold_PtBr_Logic;
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.E;
-import io.cucumber.java.pt.Então;
+import com.linkedin.eversoncordeiro_da_silva.template.logics.Hellowold_PtBr_Logic;
+import io.cucumber.java.pt.*;
 
 import java.util.HashMap;
 

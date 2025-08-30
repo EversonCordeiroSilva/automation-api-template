@@ -1,4 +1,4 @@
-package com.linkedin.eversoncordeiro_da_silva.app.runners;
+package com.linkedin.eversoncordeiro_da_silva.template.runners;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

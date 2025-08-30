@@ -1,4 +1,4 @@
-package com.linkedin.eversoncordeiro_da_silva.utils;
+package com.linkedin.eversoncordeiro_da_silva.template.utils;
 
 import io.restassured.response.Response;
 

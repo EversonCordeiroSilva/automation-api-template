@@ -1,7 +1,7 @@
-package com.linkedin.eversoncordeiro_da_silva.steps.commons;
+package com.linkedin.eversoncordeiro_da_silva.template.steps.commons;
 
-import com.fasterxml.jackson.core.util.RequestPayload;
-import com.linkedin.eversoncordeiro_da_silva.logics.commons.Generic_Logic;
+
+import com.linkedin.eversoncordeiro_da_silva.template.logics.commons.Generic_Logic;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Quando;
 

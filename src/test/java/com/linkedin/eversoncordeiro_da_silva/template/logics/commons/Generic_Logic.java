@@ -1,6 +1,6 @@
-package com.linkedin.eversoncordeiro_da_silva.logics.commons;
+package com.linkedin.eversoncordeiro_da_silva.template.logics.commons;
 
-import com.linkedin.eversoncordeiro_da_silva.utils.BaseUri;
+import com.linkedin.eversoncordeiro_da_silva.template.utils.BaseUri;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,10 +8,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-import static com.linkedin.eversoncordeiro_da_silva.utils.Context.*;
-import static com.linkedin.eversoncordeiro_da_silva.utils.Constants.*;
-import static com.linkedin.eversoncordeiro_da_silva.utils.Utils.extractJsonFromRest;
-import static com.linkedin.eversoncordeiro_da_silva.utils.Utils.getResponseFromProperties;
+import static com.linkedin.eversoncordeiro_da_silva.template.utils.Context.*;
+import static com.linkedin.eversoncordeiro_da_silva.template.utils.Constants.*;
+import static com.linkedin.eversoncordeiro_da_silva.template.utils.Utils.extractJsonFromRest;
+import static com.linkedin.eversoncordeiro_da_silva.template.utils.Utils.getResponseFromProperties;
 
 public class Generic_Logic {
 
@@ -104,7 +104,7 @@ public class Generic_Logic {
         // Logic to get payload file name
         System.out.println("Getting payload file name: " + payLoadName);
         String baseDir = System.getProperty("user.dir");
-        String payloadPath = baseDir + "/src/main/resources/payloads/request/" + payLoadName + ".json";
+        String payloadPath = baseDir + "/src/test/resources/payloads/request/" + payLoadName + ".json";
         return Paths.get(payloadPath);
     }
 

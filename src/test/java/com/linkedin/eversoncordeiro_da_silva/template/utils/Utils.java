@@ -1,9 +1,7 @@
-package com.linkedin.eversoncordeiro_da_silva.utils;
+package com.linkedin.eversoncordeiro_da_silva.template.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import java.io.File;
@@ -21,7 +19,7 @@ public class Utils {
     public static Properties getResponseFromProperties(String fileName) {
         Properties prop = new Properties();
         try {
-            prop.load(Files.newBufferedReader(Paths.get(baseDir,"src/main/resources/payloads/response",fileName+".properties")));
+            prop.load(Files.newBufferedReader(Paths.get(baseDir,"src/test/resources/payloads/response",fileName+".properties")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -31,7 +29,7 @@ public class Utils {
     public static void extractJsonFromRest(Response response, String jsonFile){
         jsonFile = jsonFile+".properties";
         final ObjectMapper mapper = new ObjectMapper();
-        File outputDir = new File(baseDir, "src/main/resources/payloads/response");
+        File outputDir = new File(baseDir, "src/test/resources/payloads/response");
 
         if (!outputDir.exists()) {
             outputDir.mkdirs();
