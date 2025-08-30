@@ -25,25 +25,11 @@ jobs:
       - name: Run tests with Maven
         run: mvn clean test
 
-      # (Opcional) adiciona overview + environment + executor
-      - name: Add Allure metadata
-        if: always()
+      # Copia categories.json para o diretório allure-results
+      - name: Copy Allure categories
         run: |
           mkdir -p target/allure-results
-          echo "Browser=N/A" >> target/allure-results/environment.properties
-          echo "OS=$(uname -s)" >> target/allure-results/environment.properties
-          echo "BuildNumber=${{ github.run_number }}" >> target/allure-results/environment.properties
-          
-          cat > target/allure-results/executor.json <<EOL
-          {
-            "name": "GitHub Actions",
-            "type": "github",
-            "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
-            "buildName": "CI Build #${{ github.run_number }}",
-            "buildOrder": "${{ github.run_number }}",
-            "reportUrl": "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
-          }
-          EOL
+          cp src/test/resources/allure/categories.json target/allure-results/
 
       # Gera relatório HTML do Allure
       - name: Generate Allure Report
@@ -52,11 +38,10 @@ jobs:
           npm install -g allure-commandline --save-dev
           allure generate target/allure-results --clean -o allure-report
 
-      # Debug (opcional)
       - name: Debug Allure Report
         run: ls -R allure-report || echo "Allure report não encontrado"
 
-      # Publica no GitHub Pages
+      # Publica o Allure Report no GitHub Pages
       - name: Deploy Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
