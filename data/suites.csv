@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"  Feature de exemplo para desenvolvimento de automação de API em JAVA","272","Atualizar usuário com PATCH","Cucumber","Sun Aug 31 19:01:37 UTC 2025","passed","Sun Aug 31 19:01:37 UTC 2025","Helloworld","Operações CRUD","Atualizar usuário com PATCH",""
+"  Feature de exemplo para desenvolvimento de automação de API em JAVA","153","Deletar usuário","Cucumber","Sun Aug 31 19:01:37 UTC 2025","passed","Sun Aug 31 19:01:37 UTC 2025","Helloworld","Operações CRUD","Deletar usuário",""
+"  Feature de exemplo para desenvolvimento de automação de API em JAVA","270","Atualizar usuário com PUT","Cucumber","Sun Aug 31 19:01:37 UTC 2025","passed","Sun Aug 31 19:01:37 UTC 2025","Helloworld","Operações CRUD","Atualizar usuário com PUT",""
+"  Feature de exemplo para desenvolvimento de automação de API em JAVA","343","Criar usuário","Cucumber","Sun Aug 31 19:01:36 UTC 2025","passed","Sun Aug 31 19:01:37 UTC 2025","Helloworld","Operações CRUD","Criar usuário",""
+"  Feature de exemplo para desenvolvimento de automação de API em JAVA","2663","Consultar Pokémon","Cucumber","Sun Aug 31 19:01:33 UTC 2025","passed","Sun Aug 31 19:01:36 UTC 2025","Helloworld","Operações CRUD","Consultar Pokémon",""
