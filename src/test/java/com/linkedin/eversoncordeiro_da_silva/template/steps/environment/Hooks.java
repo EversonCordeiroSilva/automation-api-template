@@ -1,4 +1,4 @@
-package com.linkedin.eversoncordeiro_da_silva.template.steps.commons;
+package com.linkedin.eversoncordeiro_da_silva.template.steps.environment;
 
 public class Hooks {
 // TODO: USE THIS ON VERSION CUCUMBER 7+

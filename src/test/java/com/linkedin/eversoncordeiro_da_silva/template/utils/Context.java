@@ -9,12 +9,13 @@ import org.assertj.core.api.SoftAssertions;
 public class Context {
     private static final ThreadLocal<RequestSpecification> REST = new ThreadLocal<>();
     private static final ThreadLocal<SoftAssertions> SOFT_ASSERT = new ThreadLocal<>();
+
 /// initializes the tools of assertions and rest assured
     public static void start(){
-
         REST.set(RestAssured.requestSpecification);
         SOFT_ASSERT.set(new SoftAssertions());
     }
+
 /// shutdown the tools of assertions and rest assured
     public static void tearDown(){
         if (REST.get() != null) {
@@ -35,6 +36,7 @@ public class Context {
     }
     /// Initializes a new request with default settings
     public static void newRequest(){
+        RestAssured.reset();
         REST.set(RestAssured.given());
         rest().contentType(ContentType.JSON);
         rest().accept(ContentType.JSON);

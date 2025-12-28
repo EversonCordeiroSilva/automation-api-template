@@ -1,22 +1,31 @@
 [
   {
-    "name": "api",
-    "matchedStatuses": ["failed", "broken", "passed"],
-    "matchedTags": ["@api"]
+    "name": "Skipped tests",
+    "matchedStatuses": ["skipped"]
   },
   {
-    "name": "consulta",
-    "matchedStatuses": ["failed", "broken", "passed"],
-    "matchedTags": ["@consulta"]
+    "name": "Authentication Errors",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*401|403.*"
   },
   {
-    "name": "atualiza",
-    "matchedStatuses": ["failed", "broken", "passed"],
-    "matchedTags": ["@atualiza"]
+    "name": "Contract Errors",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*400|422.*"
   },
   {
-    "name": "deleta",
-    "matchedStatuses": ["failed", "broken", "passed"],
-    "matchedTags": ["@deleta"]
+    "name": "Server Errors",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*500.*"
+  },
+  {
+    "name": "Timeout / Network Issues",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*(timeout|connection|network).*"
+  },
+  {
+    "name": "Assertion Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*AssertionError.*"
   }
 ]

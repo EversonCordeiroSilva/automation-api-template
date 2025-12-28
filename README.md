@@ -1,66 +1,66 @@
 # REST API Test Automation Project (WIP)
 
-This project aims to automate tests for public REST APIs using **Java 17**, **Rest Assured**, **Cucumber**, **JUnit**, and **Allure Reports**.
+This project automates tests for public REST APIs using Java, Rest Assured, Cucumber, JUnit and Allure.
 
-### 🚧 Status: Work in Progress
+Status: Work in Progress
 
-The project is still under construction and new features are being added.
-
-### 🔧 Technologies Used
-
-- Java 17+
+Technologies
+- Java 25+
 - Maven 3+
-- Cucumber 6 (Deprecated)
+- Cucumber 6 (deprecated — consider upgrading)
 - Rest Assured 5
 - JUnit 5
 - Allure 2.15.2
 
-### 📌 Target APIs
+Target API
+- [Fake Store API](https://fakeapi.platzi.com/en/about/introduction/) - a sample store API for testing.
 
-- [PokéAPI](https://pokeapi.co) - for testing Pokémon-related endpoints (GET).
-- [Reqres.in](https://reqres.in) - for simulating full CRUD operations (POST, PUT, PATCH, DELETE).
+Current Features
+- Login with valid and invalid users
+- Status code validations (200, 201, 204, etc.)
+- Validates presence of a Bearer token in responses
+- Allure reporting integrated with Cucumber
 
-### ✅ Current Features
+Next Steps
+- Test Bearer token across other endpoints
+- CRUD tests
+- Permissions tests
+- Focus on user-critical features
+- Other minor, non-user-facing improvements
 
-- GET requests to retrieve Pokémon information.
-- CRUD tests for user management using Reqres.
-- Status code validation (200, 201, 204, etc.).
-- Allure reporting integration with Cucumber steps.
+Notes
+- If you need wider compatibility, consider documenting a minimum supported Java version (for example: Java 17+).
+- Update Cucumber to a maintained version when feasible.
 
 ### 📂 Project Structure
 
 ```txt
 src/
-└── main/
+└── test/
    ├── java/com.linkedin.eversoncordeiro_da_silva/
    │   ├── app.runners/
-   │   │   ├── Cucumber_Test.java
-   │   │   └── Run_Test.java
+   │   │   ├── RunCucumberTest.java
    │   ├── logics/
-   │   │   ├── commons/
-   │   │   │   └── Generic_Logic.java
-   │   │   └── Helloworld_En_Logic.java
+   │   │   ├── requests/
+   │   │   │   ├── login
+   │   │   │   │    ├── LoginRequest.java
+   │   │   │   │    └── Payload.java
+   │   │   │   └── MyRequest.java
+   │   │   └── Login_Logic.java
    │   ├── steps/
-   │   │   ├── app/
+   │   │   ├── environment/
    │   │   │   └── Hooks.java
-   │   │   ├── commons/
-   │   │   │   └── Generic_Steps.java
-   │   │   └── Helloworld_En_Steps.java
+   │   │   └── Login_Steps.java
    │   └── utils/
-   │       ├── BaseUri.java
-   │       ├── Constants.java
    │       ├── Context.java
    │       └── Utils.java
    └── resources/
        ├── features/
-       │   └── helloworld_en.feature
+       │   └── Login.feature
        ├── payloads/
-       │   └── request/
-       │       ├── trainer_register.json
-       │       └── trainer_update.json
-       └── response/
-           └── response.properties
+       │   └── login.json
+       ├── allure/
+       │   └── categories.json
+       └── allure.properties
 
 ```
----
-![Quality Diagram.drawio.png](Quality%20Diagram.drawio.png)
