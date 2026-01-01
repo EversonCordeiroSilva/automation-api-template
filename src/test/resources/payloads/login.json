@@ -1,4 +1,5 @@
 {
   "email": "<EMAIL>",
-  "password": "<PASS>"
+  "loginPassword": "<PASS>",
+  "loginUser": "<USER>"
 }

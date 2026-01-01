@@ -14,19 +14,19 @@ public class LoginRequest implements MyRequest {
     private JsonObject jsonObject;
     @Getter
     private Response localResponse;
-    private String endpoint = "/api/v1/auth/login";
 
     @Override
     public void request() {
-        request("john@mail.com","changeme");
+        request("qa.automation.aos01@gmail.com","qa_auto_user01", "Test@1234");
     }
 
-    public void request(String email, String pass) {
+    public void request(String email, String user, String pass) {
+        String endpoint = "/accountservice/accountrest/api/v1/login";
         newRequest();
         Gson gson = new Gson();
         rest().baseUri(BASE_URL);
         rest().basePath(endpoint);
-        rest().body(Payload.getPayload(email,pass));
+        rest().body(Payload.getPayload(email,user,pass));
         localResponse = rest().post();
         jsonObject = gson.fromJson(localResponse.asString(), JsonObject.class);
     }

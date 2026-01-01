@@ -4,7 +4,7 @@
 
     <groupId>com.linkedin.eversoncordeiro_da_silva</groupId>
     <artifactId>template</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>template</name>
@@ -12,46 +12,24 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>25</java.version>
-        <maven.compiler.version>3.3</maven.compiler.version>
-        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
+        <maven.compiler.version>3.13.0</maven.compiler.version>
+        <maven.surefire.version>3.5.2</maven.surefire.version>
+        <maven.lombok.version>1.18.42</maven.lombok.version>
 <!--        NEXT UPDATE LIB -->
 <!--        <maven.surefire.version>3.5.3</maven.surefire.version>-->
-        <junit.version>5.8.0-M1</junit.version>
+<!--        <cucumber.version>6.7.0</cucumber.version>-->
         <!--        NEXT UPDATE LIB -->
-<!--        <junit.version>5.13.4</junit.version>-->
-        <cucumber.version>6.7.0</cucumber.version>
-        <!--        NEXT UPDATE LIB -->
-<!--        <cucumber.version>7.27.2</cucumber.version>-->
+        <cucumber.version>7.27.2</cucumber.version>
         <hamcrest.version>2.2</hamcrest.version>
         <allure.version>2.29.1</allure.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>${junit.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.cucumber</groupId>
-                <artifactId>cucumber-jvm</artifactId>
-                <version>${cucumber.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.42</version>
+            <version>${maven.lombok.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
@@ -61,15 +39,11 @@
             <version>2.13.2</version>
         </dependency>
 
+        <!-- TestNG -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-suite</artifactId>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.11.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -77,14 +51,14 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <scope>test</scope>
-<!--            <version>${cucumber.version}</version>-->
+            <version>${cucumber.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
-<!--            <version>${cucumber.version}</version>-->
         </dependency>
 
         <!-- REPORT AND VALIDATION -->
@@ -122,18 +96,18 @@
         </dependency>
         <!-- Allure + Cucumber 7 -->
         <!--  NEXT UPDATE LIB -->
-<!--        <dependency>-->
-<!--            <groupId>io.qameta.allure</groupId>-->
-<!--            <artifactId>allure-cucumber7-jvm</artifactId>-->
-<!--            <version>${allure.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber6-jvm -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber6-jvm</artifactId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
             <version>${allure.version}</version>
+            <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber6-jvm -->
+<!--        <dependency>-->
+<!--            <groupId>io.qameta.allure</groupId>-->
+<!--            <artifactId>allure-cucumber6-jvm</artifactId>-->
+<!--            <version>${allure.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -142,6 +116,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <file>src/test/resources/testng.xml</file>
+                    </suiteXmlFiles>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -151,6 +130,13 @@
                     <encoding>UTF-8</encoding>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${maven.lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

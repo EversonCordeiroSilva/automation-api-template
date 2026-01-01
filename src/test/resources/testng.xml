@@ -1,0 +1,3 @@
+<listeners>
+    <listener class-name="com.linkedin.eversoncordeiro_da_silva.template.utils.TestListener" />
+</listeners>

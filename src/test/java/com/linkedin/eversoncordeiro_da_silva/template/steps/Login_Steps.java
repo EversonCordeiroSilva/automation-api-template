@@ -9,17 +9,13 @@ import java.util.HashMap;
 
 @Slf4j
 public class Login_Steps {
-    private Login_Logic logic;
-
-    public Login_Steps() {
-        logic = new Login_Logic();
-    }
+    private final Login_Logic logic = new Login_Logic();
 
 
     @Given("the Fake Store API is available")
     public void theFakeStoreAPIIsAvailable() {
         logic.sendValidCredentials();
-        logic.statusCodeIsValid(201);
+        logic.statusCodeIsValid(200);
     }
 
     @When("I authenticate with valid credentials")
@@ -37,8 +33,8 @@ public class Login_Steps {
         logic.validResponseLogin();
     }
 
-    @When("I authenticate with email {string} and password {string}")
-    public void iAuthenticateWithEmailAndPassword(String mail, String pass) {
-        logic.sendCredentials(mail,pass);
+    @When("I authenticate with email {string} and user {string} and password {string}")
+    public void iAuthenticateWithEmailAndUserAndPassword(String mail, String user, String pass) {
+        logic.sendCredentials(mail, user,pass);
     }
 }

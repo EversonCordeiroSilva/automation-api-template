@@ -1,5 +1,6 @@
 package com.linkedin.eversoncordeiro_da_silva.template.utils;
 
+import io.qameta.allure.Step;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -21,10 +22,7 @@ public class Context {
         if (REST.get() != null) {
             REST.remove();
         }
-        if (SOFT_ASSERT.get() != null) {
-            SOFT_ASSERT.get().assertAll();
-            SOFT_ASSERT.remove();
-        }
+        assertAll();
     }
 
     public static RequestSpecification rest(){
@@ -33,6 +31,13 @@ public class Context {
     /// Tools of assertions
     public static SoftAssertions softAssert(){
         return SOFT_ASSERT.get();
+    }
+    /// Tools of assertions
+    public static void assertAll(){
+        if (SOFT_ASSERT.get() != null) {
+            SOFT_ASSERT.get().assertAll();
+            SOFT_ASSERT.remove();
+        }
     }
     /// Initializes a new request with default settings
     public static void newRequest(){
